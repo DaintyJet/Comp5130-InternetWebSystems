@@ -1,4 +1,4 @@
-# Intro Linux Kernel Development 
+<!-- # Intro Linux Kernel Development 
 This is a class that focuses on Web Development and the internet, mainly the basics. This should hopefully be easy...
 
 ## Course Description 
@@ -7,4 +7,4 @@ This course is a survey of Web programming technologies. It begins with a discus
 ## Course Overview 
 
 
-## Required Materials 
+## Required Materials -->
