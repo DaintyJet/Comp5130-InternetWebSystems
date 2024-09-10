@@ -1,3 +1,7 @@
+ # Internet and Web Systems
+ This repository will contain a project (and assorted documents) related to a term/class project.
+
+
 <!-- # Intro Linux Kernel Development 
 This is a class that focuses on Web Development and the internet, mainly the basics. This should hopefully be easy...
 
