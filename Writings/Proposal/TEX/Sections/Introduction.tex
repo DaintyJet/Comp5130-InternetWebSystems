@@ -1,0 +1,39 @@
+
+\section{Introduction}
+Have you ever wanted to host your own password manager that is probably secure? For most people, this is probably not the case. However there are many that \textit{\href{https://en.wikipedia.org/wiki/Self-hosting_(web_services)}{self-host}}\cite{self} their own commonly used services such as \href{https://nextcloud.com/}{private clouds}, \href{https://jellyfin.org/}{video streaming platforms}, and \href{https://pi-hole.net/}{networking solutions}. Everyone has their own reason for doing this, from privacy concerns relating to their data on the internet to simply having the desire to learn the required skills to host and manage useful services.\\
+
+\noindent This project does not aim to take a place in that market, it's goal is to educate students by showcasing common vulnerabilities and misconfigurations within a password manager storing sensitive information. It's use in the classroom should assist students in learning how to make their systems more secure, both during the development and deployment phases. This project should also emphasize the effects our decisions can have when creating or deploying a project or service that can be accessed over a network connection.
+
+\subsection{Why}
+\noindent There already exist many mature projects that allow users to self-host their own password managers. Some examples include \href{https://bitwarden.com/help/install-on-premise-linux/}{BitWarden}, \href{https://github.com/keepassxreboot/keepassxc}{KeyyPassXC} and \href{https://github.com/keeweb/keeweb}{KeeWeb} all of which allow you to store passwords and securely access them through an application or web browser extension. However, due to the fact they are production-ready applications, their use in teaching students about software security is not ideal as the exploits that can be used against them tend to be non-trivial.\\
+
+\noindent This does not aim to replace those projects, just as you should \textbf{never} implement your own versions of cryptographic algorithms for the same reasons you should not store your sensitive information on platforms you create that are accessible over a networked connection. Building reliable and secure systems is a challenge large teams at well-funded companies struggle with; an individual can make large contributions towards creating a secure system, but they likely cannot consider every possible problem that can arise. The first step in enabling students to make contributions towards a more secure world is showing them the importance of secured systems and how they are built insecurely.
+
+\subsection{What}
+This is why, in addition to creating a working password manager that a user can access, this project aims to implement one that can have security vulnerabilities and oversights configured or enabled both before and during its deployment. The audiences this project aims to capture are teachers and students in the classroom exploring software development or cybersecurity. This could also be deployed as a vulnerable application in cybersecurity competitions used to teach defensive or offensive operations to students. It would fill a similar role to systems or services such as \href{https://github.com/rapid7/metasploitable3}{Metasploitable}, \href{https://github.com/stephenbradshaw/vulnserver}{Vulnserver}, or \href{https://github.com/WebGoat/WebGoat}{WebGoat}. The primary difference is that teachers can use this application to show students that these vulnerabilities exist in real and usable applications and that sensitive information can be leaked due to our mistakes.\\
+
+\noindent As mentioned previously, this project will contain a variety of vulnerabilities, but they will all be togglable either during the build stage or after the application has been deployed. This means you can deploy the \textit{Probably Secure Password Manager} with all of the vulnerabilities disabled and use it as you would any other password manager. However, as mentioned earlier, this project's goal is to educate students on these vulnerabilities, and the ability to toggle them is provided to allow instructors to create dynamic and engaging lessons.\\
+
+\noindent This project will be designed to be lightweight and able to be run on most modern systems. It will be able to run within a series of Docker containers to ease the build and deployment processes, or it can be run as an application directly on the target machine. Below are some initial vulnerabilities and learning objectives that may be included in this project:\\
+
+\begin{tabular}{|c|p{4cm}|p{4cm}|}
+     \hline
+     \textbf{Vulnerability}& \textbf{Effect}&\textbf{Learning Objective} \\
+     \hline
+     Query String Injections & Extraction of Information or Execution of commands & Input Sanitation\\
+     \hline
+     Lack of Database Encryption & Sensitive information (Passwords/Data) may be accessed & Data-at-rest encryption\\
+     \hline
+     Default Users and Passwords & Default credentials are used to access privileged accounts& Randomization of Default Credentials\\
+     \hline
+     Broken Access Controls & APIs used to manage users or access data are used to gain access or exfiltrate data. & Least Privilege and Separation of Duty.\\
+     \hline
+     Improper Authentication & non-root users may authenticate as admins & Authentication Schemes.\\
+     \hline
+     Exposed Sensitive Data & Internal non-public pages leaking sensitive information. & Access Control on Restricted Pages.\\
+     \hline
+\end{tabular}
+
+
+
+% but this one is practical both inside and outside of a classroom. The main goal of this project is to create a dockerized password manager that can be deployed locally that is not only secure but can also be made insecure.

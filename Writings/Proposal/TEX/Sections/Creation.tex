@@ -1,0 +1,18 @@
+
+\section{Creation and Deployment Details}
+
+\noindent\textbf{Bare Metal}:
+\begin{enumerate}
+    \item Utilize the \textit{setup\_system.sh} script to setup a Linux system for the deployment of this application. This will install the \textit{Node JS} Runtime, and the MongoDB Database
+    \item Run \textit{node.sh} to install Node JS for your user! Later versions will be installed in a common directory.
+    \item Fill in the dot env file based on the provided template. Run the \textit{npm install} and the the \textit{server.js} file from within the Source directory to start the server and initialize the database if it has not already been done. 
+\end{enumerate}
+
+
+\noindent\textbf{Containerization}:
+\begin{enumerate}
+    \item Utilize the \textit{setup\_docker.sh} script to set up a Linux system for the deployment of this application. This will install the \textit{Docker Engine} a container runtime we will use for the deployment of this system.
+    \item Modify Environment Variables in the Dockerfiles to enable additional vulnerabilities if desired.
+    \item Use Docker Compose on the \textit{docker-compose-single.yml} file to build the container and deploy them.
+    \item The results from the build can be deployed to a local registry and later deployed across multiple systems in a Docker Swarm or Kubernetes Cluster.
+\end{enumerate}
