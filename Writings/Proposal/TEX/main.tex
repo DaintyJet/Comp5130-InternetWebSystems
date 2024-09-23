@@ -1,0 +1,52 @@
+\documentclass{article}
+
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{a4wide}   % Width
+\usepackage{hyperref} % Hyper links
+\usepackage{tabularx} % More Tables 
+\usepackage{subcaption}
+
+
+\graphicspath{{Images/}}
+
+% Config Links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+
+% % Redefine \section to be centered and unnumbered
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries\centering} % Format: Large, bold, centered
+%   {\thesection } % No section numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+% % Redefine \subsection to be centered and unnumbered
+% \titleformat{\subsection}
+%   {\normalfont\large\bfseries\centering} % Format: large, bold, centered
+%   {} % No subsection numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+\title{Internet \& Web Systems Proposal: The Probably Secure Password Manager}
+\author{by Matthew Harper }
+\date{September 2024}
+
+\begin{document}
+
+\maketitle
+\input{Sections/Introduction.tex}
+\input{Sections/Features.tex}
+\input{Sections/Implementation}
+\input{Sections/Creation.tex}
+\input{Sections/Git.tex}
+\input{Sections/Ref.tex}
+
+\end{document}

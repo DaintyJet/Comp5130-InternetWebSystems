@@ -1,6 +1,9 @@
  # Internet and Web Systems
  This repository will contain a project (and assorted documents) related to a term/class project.
 
+See the [Proposal](./Proposal/README.md) for a READEME version of the proposal used for quick notes and edits. This has been converted to a more formal LaTeX document and Exported as a [PDF elsewhere](./Proposal/LaTex/Proposal.pdf).
+
+
 
 <!-- # Intro Linux Kernel Development 
 This is a class that focuses on Web Development and the internet, mainly the basics. This should hopefully be easy...

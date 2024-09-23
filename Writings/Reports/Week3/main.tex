@@ -1,0 +1,53 @@
+\documentclass{article}
+
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{a4wide}   % Width
+\usepackage{hyperref} % Hyper links
+\usepackage{tabularx} % More Tables 
+\usepackage{subcaption}
+
+
+\graphicspath{{Images/}}
+
+% Config Links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+
+% % Redefine \section to be centered and unnumbered
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries\centering} % Format: Large, bold, centered
+%   {\thesection } % No section numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+% % Redefine \subsection to be centered and unnumbered
+% \titleformat{\subsection}
+%   {\normalfont\large\bfseries\centering} % Format: large, bold, centered
+%   {} % No subsection numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+\title{Internet \& Web Systems Week 3 Progess}
+\author{by Matthew Harper }
+\date{September 2024}
+
+\begin{document}
+
+\maketitle
+\section{Progress}
+I configured the GitHub repository to be public as we are linking to it in the proposal document, otherwise I am reusing one I created before the semester started to store work done in the class. I also setup a development environment for this class, and wrote a script that can automate parts of setting up the environment as part of the assignment. This includes downloading and configuring the Node JS Runtime and MongDB database for the bare metal install and setup of the application, I also provide a script I had written to set up the Docker Engine Container Runtime for the version of this application that can be run on Docker. \\\\
+I was also able to set up a basic skeleton of the website's backend, providing the structure of APIs and user interface targets, and I was able to make a connection to the MongoDB database. Outside of the scripts and a basic server implementation, most of my time was spent researching potential topics, frameworks, and how I could go about implementing this. Writing the proposal also took a good amount of time as although I was in the classes where this was discussed, I was still a little uncertain about the contents that should be in each listed sections. However, I was able to reach the page requirement mentioned of four pages and I did go over it a little bit due to tables and images. I also happened to set up a Kubernetes Cluster during this time, and although I do not plan on it at this time if I finish goals earlier than expected, I may explore a Kubernetes deployment of this application as I already plan to build docker containers.\\\\
+Although the backend server and MongoDB database are working, they do not do much of note at this time since most routes consist of simple stubs to show the server is working. Though the setup scripts are fully working on Ubuntu based systems. 
+\section{Not Completed}
+My primary goal for this sprint was to decide on a topic, research the possible frameworks and languages I could use, and then implement a basic starting point to move forward from. This was all accomplished during this sprint (In addition to reusing the Git Repository). I was unable to accomplish any of the stretch goals I had set for myself, mainly due to external time pressures from other classes and work commitments.\\\\
+Primarily, I wanted to draft and implement a Database Structure to use with the MongoDB instance, as the majority of the functionality provided by the website relies on the MongoDB database and how I will be storing information. I also wanted to implement a more complete structure of the APIs, this implementation would be one that operates without authentication. That is, they would receive messages, parse their content while printing it to the console log, and give some reply (no real functionality implemented). This would be done  mainly so I could get a better idea of how these things work, and so I could finalize the structure of a client's interactions with the web server. I also wanted to create a mock Dockerfile and Docker Compose file that I would expand on in later weeks once the service is more completed and closer to being done. 
+
+\end{document}

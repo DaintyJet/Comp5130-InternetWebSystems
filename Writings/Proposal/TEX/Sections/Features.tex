@@ -1,0 +1,18 @@
+\section{Features}
+\subsection{Supported Features}
+\noindent\textbf{HTTPs/HTTP Toggle}: Instructors will be able to toggle if HTTP connections can be made to the site, HTTPs will \textit{always} be available.\\
+\noindent\textbf{Account Creation}: Admin users may create additional accounts that may authenticate to the server. This may be done interactively or through an API.\\
+\noindent\textbf{Password Storage and Sharing}: Users may store and share passwords with another user.\\
+\noindent\textbf{Vulnerability Toggling API}: Admin users may, through the use of APIs, toggle the individual vulnerabilities present on the site, enabling or disabling them.\\
+\noindent\textbf{Vulnerability Toggling Environment Variables}: Some vulnerabilities may only be introduced when first starting the server and database; these will be controlled through environment variables passed to the Docker containers.\\
+\noindent\textbf{Vulnerability Logging}: The level of logging and it's contents may be toggled by the aforementioned \textit{Vulnerability Toggling API}. This logging will be written to a file, such that \href{https://www.ibm.com/topics/siem}{SIEM} solutions may capture the data.
+\subsection{Not Supported Features}
+\noindent\textbf{Auto-Fill}: This application will not support automatically filling in credentials on external sites.\\
+\noindent\textbf{Browser Integration}: This application will not directly integrate with a given browser, extensions could be developed later.\\
+\noindent\textbf{Open-ID Connect}: As this will be a vulnerable application, I do not want to facilitate students leaking actual access tokens to personal accounts.\\
+\noindent\textbf{Component Swapping}: This application will not support swapping components on the fly, the code will be written such that this can easily be done. However, human intervention will still be required to rewrite parts of the codebase.
+\subsection{Future Plans and Feature Implementations}
+\noindent\textbf{Browser Extension Support}: Added REST endpoints to support browser extensions.\\
+\noindent\textbf{Granular User Management}: Implement a more robust and feature rich user management scheme allowing for more granular permissions and groups .\\
+\noindent\textbf{More Complex Vulnerabilities}: Utilize additional external components and services to allow for more complex vulnerabilities.\\
+
