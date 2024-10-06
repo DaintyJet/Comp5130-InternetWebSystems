@@ -1,0 +1,73 @@
+\documentclass{article}
+
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{a4wide}   % Width
+\usepackage{hyperref} % Hyper links
+\usepackage{tabularx} % More Tables 
+\usepackage{subcaption}
+
+
+\graphicspath{{Images/}}
+
+% Config Links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+
+% % Redefine \section to be centered and unnumbered
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries\centering} % Format: Large, bold, centered
+%   {\thesection } % No section numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+% % Redefine \subsection to be centered and unnumbered
+% \titleformat{\subsection}
+%   {\normalfont\large\bfseries\centering} % Format: large, bold, centered
+%   {} % No subsection numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+\title{Internet \& Web Systems Week 5 Progess}
+\author{by Matthew Harper }
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+\section{Progress}
+Rather than work on the stretch goals from the previous cycle, which for the most part can be done at any time I decided to implement some of the
+core feature I need to start implementing the vulnerabilities in the site. Namely I needed to start implementing authentication, decide on a database
+scheme, expand the stubs for the APIs, and start to plan out how much logging will occur at each level and where it may be useful.
+
+I was able to implement authentication, although I originally planned to implement this using passport, for now I was able to implement a system that stores
+usernames and hashed passwords that were hashed with the \textit{bcrypt} function. The later authentication of users is handled with JSON Web Tokens, as of
+now it uses a placeholder secret, but I will change that to be controlled in the \textit{.env} file so it can be an added vulnerability.
+
+I also started to create the Database wrapper, as part of this I explored using \textit{mongoose} which seems to be a popular library to make \textit{MongoDB}
+operations easier. Otherwise I only implemented the user authentication database through this, I have planned out the other two databases one being a UID
+mapper so I can more easily induce or reduce vulnerabilities and the final one being a simple database used to store the user supplied data.
+
+Finally I added the JSON Web Token check to most of the API endpoints and user pages, I also expanded the API stubs with the basic information I will require
+as part of the request bodies in order to complete the given task. At this time it simply prints the information out. I did not and do not plan to do much
+with regards to the frontend until I have to, as that is the least important in terms of functionality for me and this project.
+
+I also started to formalize the vulnerabilities that I can implement. However, that is a rolling task that will occur week-to-week.
+
+\section{Not Completed}
+The primary goal was to implement authentication, design the collections used in the database and start implementing the APIs. One of my stretch goals
+was to implement all of the database collections, however the only one that occurred was the authentication database as that was required. I did not
+implement all of the APIs, however I was able to add the authentication checks to all the user endpoints and apis. As the Admin pages will need to
+check if the user is an admin I will implement the authentication scheme there later, currently I believe the easiest method is the admin accounts will
+have a \textit{UID < 1000} and normal users will have a UID that is larger. This is basic, and allows me to implement later vulnerabilities. So I was
+able to add authentication for normal users and some of the APIs, but I was unable to finish the admin authentication.
+
+I also wanted to explore enabling HTTPs, however that was delayed due to other classwork requiring a significant amount of time.
+\end{document}
