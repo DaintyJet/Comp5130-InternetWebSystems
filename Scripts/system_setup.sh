@@ -29,7 +29,7 @@ mongosh --eval "use $DB"
 echo "[!] Creating DB Admin[!]"
 mongosh mongodb://127.0.0.1:27017/admin --eval 'db.createUser({
   user: "site_admin",
-  pwd: "1qazxsW@1",
+  pwd: "1qazxsW1",
   roles: [
     { role: "userAdminAnyDatabase", db: "admin" },
     { role: "readWriteAnyDatabase", db: "admin" },
