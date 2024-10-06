@@ -16,6 +16,9 @@ const logger = require('pino')()
 // Auth Framework
 const passport = require('passport');
 
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
 // Routes
 const api = require('./routes/api.js');
 const admin = require('./routes/admin-ui.js');
@@ -29,6 +32,8 @@ const webserver = express();
 webserver.use(cors());
 webserver.use(express.json());
 webserver.use(express.urlencoded());
+webserver.use(cookieParser());        // Parse cookies before routes
+
 
 webserver.use(api); 
 webserver.use(admin); 
@@ -38,4 +43,4 @@ webserver.use(usr); // app.use() requires a middleware function
 var http_server = http.createServer(webserver)
 console.log(8080);
 console.log(process.env.MONGO_URI);
-http_server.listen(8080);
+http_server.listen(8081);
