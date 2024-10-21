@@ -1,0 +1,60 @@
+\documentclass{article}
+
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{a4wide}   % Width
+\usepackage{hyperref} % Hyper links
+\usepackage{tabularx} % More Tables 
+\usepackage{subcaption}
+
+
+\graphicspath{{Images/}}
+
+% Config Links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+
+% % Redefine \section to be centered and unnumbered
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries\centering} % Format: Large, bold, centered
+%   {\thesection } % No section numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+% % Redefine \subsection to be centered and unnumbered
+% \titleformat{\subsection}
+%   {\normalfont\large\bfseries\centering} % Format: large, bold, centered
+%   {} % No subsection numbering
+%   {0pt} % No extra space before title
+%   {} % No extra code before the title
+
+\title{Internet \& Web Systems Week 7 Progress}
+\author{by Matthew Harper }
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+\section{Progress}
+The progress for this week was good but less than I would have hoped. Again, there are a great deal of outside time pressures I am dealing with at this time.
+This cycle, I had hoped to implement all of the API functions and the middle layers for the database. I was also able to implement the other two collections
+I need for this project. That is the Username to UID mapping collection, which I expanded to hold group and key information as I determined I needed to do that. 
+I also implemented the userData collection which is the core database used to store all of the user's inputs to the site. That is, the userData collection will
+hold the passwords the users chose to trust the site with. Outside of this, I implemented the userIDs to identify admin vs non-admin users, and added those checks
+to most of the API endpoints. I also created the framework for the Vulnerability management layer which is partially implemented but needs to be connected to the
+API and admin pages to be functional. I also implemented the encryption and decryption of user passwords that are entered into the database, this is a rough
+implementation as it lacks robust error checking.
+
+\section{Not Completed}
+I wanted to explore enabling HTTPs, however that was delayed due to other classwork requiring a significant amount of time again. Although I was able to implement
+part of the Vulnerability middle layer, I wanted to implement the API so I would be able to test its functionality, as now it currently does not accomplish much.
+As for the encryption and decryption of user passwords that are stored, I wanted to have robust error handling as although this is going to be a vulnerable site
+to some degree, we do not want it to crash unexpectedly. Finally I wanted to start implementing more thorough logging, this way I can start to tie that into vulnerabilities.
+\end{document}

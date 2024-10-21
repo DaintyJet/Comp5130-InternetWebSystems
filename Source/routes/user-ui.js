@@ -4,7 +4,8 @@ const router = express.Router();
 
 const my_db_layer = require('../usr_modules/database')
 const my_auth_layer = require('../usr_modules/jsonweb_token')
-
+const my_vuln_layer = require('../usr_modules/vuln_manager')
+const my_passwd_layer = require('../usr_modules/passwd')
 // MongoDB
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const mongouri = process.env.MONGO_URI;
@@ -43,6 +44,7 @@ router.post('/register', async (req, res) => {
 		res.status(400).json({ message: 'REPLACE HTML: Invalid request body' })
 	}
 
+
 	try {
 		// Check if the user already exists
 		const existingUser = await my_db_layer.find_user_auth(username);
@@ -58,9 +60,32 @@ router.post('/register', async (req, res) => {
 		console.log("PINE: Passwd: " + password);
 
 		// Create and save new user
-		const newUser = await my_db_layer.insert_user(username, hashedPassword, "Normal"); // use group if enabled
+		const newUserEntry = await my_db_layer.insert_user(username, hashedPassword); // use group if enabled
+
+		if (my_vuln_layer.UID_GUARD == false) {
+			console.info("To be Implemented, read from HIDDEN fourm entry to set UID")
+		} else {
+			let newUID = await my_db_layer.get_largest_uid();
+			if (isNaN(newUID) || newUID == undefined) {
+				newUID = 1000;
+			} else {
+				newUID += 1;
+			}
+
+			key = await my_passwd_layer.gen_key()
+
+			if (group == undefined && my_vuln_layer.VAR_GRP1) {
+				let newUIDEntry = my_db_layer.insert_uid_user(username, newUID, 0, key.toString('hex'))
+				console.log(newUIDEntry)
+			} else {
+				let newUIDEntry = my_db_layer.insert_uid_user(username, newUID, group, key)
+				console.log(newUIDEntry)
+			}
+			console.log(newUID)
+		}
+
 		// Toggle Logging INFO
-		console.log("PINE:" + newUser);
+		console.log("PINE:" + newUserEntry);
 		res.status(201).json({ message: 'REPLACE HTML: User registered successfully' });
 	} catch (error) {
 		console.log("PINE:" + error);

@@ -1,31 +1,25 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
 const router = express.Router();
 
-// MongoDB
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const mongouri = process.env.MONGO_URI;
+const my_db_layer = require('../usr_modules/database')
 
-const client = new MongoClient(mongouri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
-  });
 
 // Admin Page
-router.get('/admin', (req, res) => {
-    res.send('Response from admin Page');
-});
+router.get('/admin', async (req, res) => {
+	let {token, opt, body} = req.body
 
-// Admin Page
-router.get('/mongotest', (req, res) => {
-    res.send('Response from mongoTEST');
-    const database = client.db("PSPM");
-    database.createCollection('User_Info');
-    database.createCollection('User_Data');
+    let user = my_auth_layer.authenticateJWTFromCookieFunction(token)
+    if(typeof user === 'undefined')
+	    return res.status(403).send('REPLACE HTML: Invalid user provided');
 
+    res.send('Response from api admin');
+	const uuid = await my_db_layer.getUID(user);
+
+	// UID check vuln, o.w. validate admin user
+	if (!my_vulns_layer.VAR_ADMIN_CHECK && (uuid != undefined && uuid <= 1000)) {
+	    return res.status(403).send('REPLACE HTML: Non-Admin User');
+	}
+  res.send('Response from admin Page');
 });
 
 module.exports = router; 

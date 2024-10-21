@@ -28,7 +28,7 @@ const authenticateJWTFromCookie = (req, res, next) => {
 
 // Returns the username of the target if the token is valid
 // Returns undefined if a invalid token is provided.
-  const authenticateJWTFromCookieFunction = (token, res) => {
+function authenticateJWTFromCookieFunction(token) {
     try {
       const decoded = jwt.verify(token, JWT_SECRET); // Verify token, throws err on failure.
       return decoded.userId; // Set userID in request
@@ -38,7 +38,7 @@ const authenticateJWTFromCookie = (req, res, next) => {
   };
 
 function generate_jwt(uid) {
-    return jwt.sign({ userId: uid._id }, JWT_SECRET, { expiresIn: '1h' });
+    return jwt.sign({ userId: uid.username }, JWT_SECRET, { expiresIn: '1h' });
 }
 
 module.exports = {authenticateJWTFromCookie, authenticateJWTFromCookieFunction, generate_jwt};
