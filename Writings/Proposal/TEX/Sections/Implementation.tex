@@ -23,21 +23,23 @@ We will provide two configurations that this service can be deployed as: a simpl
 
 \subsection{Overview of Components and Modules}
 
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|p{6cm}|c|}
     \hline
-    \textbf{Component/Module}& \textbf{Purpose}\\
+    \textbf{Component/Module}& \textbf{Purpose} & \textbf{Language}\\
     \hline
-    Authentication Component (Server) & Handle the Authentication of Users and API Requests.\\ 
+    Authentication Component (Server) & Handle the Authentication of Users and API Requests. & JS (Express)\\ 
     \hline
-    Logging Component (Server) & Manage logging levels and messages.\\
+    Logging Component (Server) & Manage logging levels and messages. & JS (Express)\\
     \hline
-    User Management (Server) & Add, and remove users. Change Passwords.\\
+    User Management (Server) & Add, and remove users. Change Passwords. & JS (Express)\\
     \hline
-    User Dashboards (Server) & Populate pages with a user's stored passwords.\\
+    User Dashboards (Server) & Populate pages with a user's stored passwords. & JS (Express)\\
     \hline
-    Vulnerability Management (Server) & Configure and view vulnerability status.\\
+    Vulnerability Management (Server) & Configure and view vulnerability status. & JS (Express)\\
     \hline
-    Database & Store user access credentials and saved data.\\
+    User Interface (FE) & Reactive User Frontend. & JS (React)\\
+    \hline
+    Database & Store user access credentials and saved data. & External (MongoDB)\\
     \hline
 \end{tabular}
 
@@ -62,7 +64,7 @@ We will provide two configurations that this service can be deployed as: a simpl
     \hline
     Docker Engine & Containerization Platform & \href{https://github.com/moby/moby/blob/master/LICENSE}{Apache License, Version 2.0}\\ 
     \hline
-    Piano & Logging Library & \href{https://github.com/pinojs/pino/blob/main/LICENSE}{MIT}\\
+    Pino & Logging Library & \href{https://github.com/pinojs/pino/blob/main/LICENSE}{MIT}\\
     \hline
 \end{tabular}\\\\
 % \subsection{Overview of 3rd Party Services and APIs}
